@@ -115,6 +115,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -122,4 +123,246 @@
   body {
     @apply bg-background text-foreground;
   }
+
+
+  :root {
+    /* ── Color system ───────────────────────────── */
+
+    /* Black scale */
+    --black-50:  #e7e7e7;
+    --black-100: #b5b5b5;
+    --black-200: #919191;
+    --black-300: #5e5e5e;
+    --black-400: #3f3f3f;
+    --black-500: #0f0f0f; /* MAIN black */
+    --black-600: #0e0e0e;
+    --black-700: #0b0b0b;
+    --black-800: #080808;
+    --black-900: #060606;
+
+    /* White scale */
+    --white-50:  #fefefe;
+    --white-100: #fcfcfc;
+    --white-200: #fafafa;
+    --white-300: #f8f8f8;
+    --white-400: #f6f6f6;
+    --white-500: #f4f4f4; /* MAIN white */
+    --white-600: #dedede;
+    --white-700: #adadad;
+    --white-800: #868686;
+    --white-900: #666666;
+
+    /* shadcn tokens (light mode) */
+    --background: var(--white-500);
+    --foreground: var(--black-900);
+
+    --primary: var(--black-500);
+    --primary-foreground: var(--white-500);
+
+    --secondary: var(--white-200);
+    --secondary-foreground: var(--black-800);
+
+    --muted: var(--white-300);
+    --muted-foreground: var(--black-700);
+
+    --accent: var(--white-200);
+    --accent-foreground: var(--black-800);
+
+    --border: var(--white-400);
+    --input: var(--white-400);
+    --ring: var(--black-500);
+    --radius: 0.5rem;
+
+    /* ── Typography tokens (mobile defaults) ────── */
+    --fs-h1: 2.25rem;       /* ~36px */
+    --fs-h2: 2rem;          /* 32px  */
+    --fs-h3: 1.75rem;       /* 28px  */
+    --fs-h4: 1.5rem;        /* 24px  */
+    --fs-h5: 1.25rem;       /* 20px  */
+
+    --fs-title-1: 1.0625rem; /* 17px */
+    --fs-title-2: 0.9375rem; /* 15px */
+
+    --fs-body: 0.8125rem;    /* 13px */
+    --fs-caption: 0.6875rem; /* 11px */
+
+    --lh-heading: 1.2;
+    --lh-body: 1.2;
+  }
+
+  .dark {
+    --background: var(--black-900);
+    --foreground: var(--white-500);
+
+    --primary: var(--white-500);
+    --primary-foreground: var(--black-900);
+
+    --secondary: var(--black-700);
+    --secondary-foreground: var(--white-500);
+
+    --muted: var(--black-700);
+    --muted-foreground: var(--white-600);
+
+    --accent: var(--black-700);
+    --accent-foreground: var(--white-500);
+
+    --border: var(--black-700);
+    --input: var(--black-700);
+    --ring: var(--white-500);
+    /* typography stays the same in dark mode,
+       so we don't need to redefine fs-* vars here */
+
+  }
+
+
+  /* Desktop / tablet and up (md breakpoint ~768px) */
+  @media (min-width: 768px) {
+    :root {
+      --fs-h1: 3rem;         /* 48px */
+      --fs-h2: 2.5rem;       /* 40px */
+      --fs-h3: 2.0625rem;    /* 33px */
+      --fs-h4: 1.75rem;      /* 28px */
+      --fs-h5: 1.4375rem;    /* 23px */
+
+      --fs-title-1: 1.1875rem; /* 19px */
+      --fs-title-2: 1rem;      /* 16px */
+      /* body & caption stay the same for now */
+      
+    }
+  }
+}
+
+@layer components {
+  .text-h1 {
+    font-size: var(--fs-h1);
+    line-height: var(--lh-heading);
+  }
+  .text-h2 {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+  }
+  .text-h3 {
+    font-size: var(--fs-h3);
+    line-height: var(--lh-heading);
+  }
+  .text-h4 {
+    font-size: var(--fs-h4);
+    line-height: var(--lh-heading);
+  }
+  .text-h5 {
+    font-size: var(--fs-h5);
+    line-height: var(--lh-heading);
+  }
+
+  .text-title-1 {
+    font-size: var(--fs-title-1);
+    line-height: var(--lh-heading);
+  }
+  .text-title-2 {
+    font-size: var(--fs-title-2);
+    line-height: var(--lh-heading);
+  }
+
+  .text-body {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  .text-caption {
+    font-size: var(--fs-caption);
+    line-height: var(--lh-body);
+  }
+}
+
+
+
+
+@layer utilities {
+
+  /* ─── TEXT COLORS ───────────────────────── */
+
+  /* black text */
+  .text-black-50  { color: var(--black-50); }
+  .text-black-100 { color: var(--black-100); }
+  .text-black-200 { color: var(--black-200); }
+  .text-black-300 { color: var(--black-300); }
+  .text-black-400 { color: var(--black-400); }
+  .text-black-500 { color: var(--black-500); }
+  .text-black-600 { color: var(--black-600); }
+  .text-black-700 { color: var(--black-700); }
+  .text-black-800 { color: var(--black-800); }
+  .text-black-900 { color: var(--black-900); }
+
+  /* white text */
+  .text-white-50  { color: var(--white-50); }
+  .text-white-100 { color: var(--white-100); }
+  .text-white-200 { color: var(--white-200); }
+  .text-white-300 { color: var(--white-300); }
+  .text-white-400 { color: var(--white-400); }
+  .text-white-500 { color: var(--white-500); }
+  .text-white-600 { color: var(--white-600); }
+  .text-white-700 { color: var(--white-700); }
+  .text-white-800 { color: var(--white-800); }
+  .text-white-900 { color: var(--white-900); }
+
+
+  /* ─── BACKGROUND COLORS ─────────────────── */
+
+  /* black backgrounds */
+  .bg-black-50  { background-color: var(--black-50); }
+  .bg-black-100 { background-color: var(--black-100); }
+  .bg-black-200 { background-color: var(--black-200); }
+  .bg-black-300 { background-color: var(--black-300); }
+  .bg-black-400 { background-color: var(--black-400); }
+  .bg-black-500 { background-color: var(--black-500); }
+  .bg-black-600 { background-color: var(--black-600); }
+  .bg-black-700 { background-color: var(--black-700); }
+  .bg-black-800 { background-color: var(--black-800); }
+  .bg-black-900 { background-color: var(--black-900); }
+
+  /* white backgrounds */
+  .bg-white-50  { background-color: var(--white-50); }
+  .bg-white-100 { background-color: var(--white-100); }
+  .bg-white-200 { background-color: var(--white-200); }
+  .bg-white-300 { background-color: var(--white-300); }
+  .bg-white-400 { background-color: var(--white-400); }
+  .bg-white-500 { background-color: var(--white-500); }
+  .bg-white-600 { background-color: var(--white-600); }
+  .bg-white-700 { background-color: var(--white-700); }
+  .bg-white-800 { background-color: var(--white-800); }
+  .bg-white-900 { background-color: var(--white-900); }
+
+
+  /* ─── BORDER COLORS ─────────────────────── */
+
+  .border-black-50  { border-color: var(--black-50); }
+  .border-black-100 { border-color: var(--black-100); }
+  .border-black-200 { border-color: var(--black-200); }
+  .border-black-300 { border-color: var(--black-300); }
+  .border-black-400 { border-color: var(--black-400); }
+  .border-black-500 { border-color: var(--black-500); }
+  .border-black-600 { border-color: var(--black-600); }
+  .border-black-700 { border-color: var(--black-700); }
+  .border-black-800 { border-color: var(--black-800); }
+  .border-black-900 { border-color: var(--black-900); }
+
+  .border-white-50  { border-color: var(--white-50); }
+  .border-white-100 { border-color: var(--white-100); }
+  .border-white-200 { border-color: var(--white-200); }
+  .border-white-300 { border-color: var(--white-300); }
+  .border-white-400 { border-color: var(--white-400); }
+  .border-white-500 { border-color: var(--white-500); }
+  .border-white-600 { border-color: var(--white-600); }
+  .border-white-700 { border-color: var(--white-700); }
+  .border-white-800 { border-color: var(--white-800); }
+  .border-white-900 { border-color: var(--white-900); }
+
+
+  /* ─── ICON SUPPORT (optional but useful) ─── */
+
+  .fill-black-500 { fill: var(--black-500); }
+  .fill-white-500 { fill: var(--white-500); }
+
+  .stroke-black-500 { stroke: var(--black-500); }
+  .stroke-white-500 { stroke: var(--white-500); }
 }

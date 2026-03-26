@@ -1,4 +1,4 @@
-# Continental Fitness Gym
+# Contnental Fitness Gym
 
 A basic full-stack gym management system with a Laravel backend API and Next.js frontend.
 

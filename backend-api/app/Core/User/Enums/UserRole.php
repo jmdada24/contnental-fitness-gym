@@ -9,7 +9,6 @@ enum UserRole: string{
     case Trainer = 'trainer';
     case Member = 'member';
 
-
     public static function managementValues(): array{
 
         return [

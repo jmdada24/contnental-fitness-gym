@@ -9,6 +9,6 @@ enum UserStatus: string{
     case Suspended = 'suspended';
     case Archived = 'archive';
 
-
+    
 }
 
